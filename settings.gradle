@@ -1,0 +1,2 @@
+include ':fingerprint_guess_it_game'
+rootProject.name = "GuessIt"
