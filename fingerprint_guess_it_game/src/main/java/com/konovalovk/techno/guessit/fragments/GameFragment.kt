@@ -11,22 +11,21 @@ import com.konovalovk.techno.guessit.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment(R.layout.fragment_game){
-    val viewmodel:GameViewModel by viewModels()
-
+    private val viewmodel: GameViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listOfViewPagers = listOf(vpFirstDigit, vpSecondDigit, vpThirdDigit, vpFourthDigit)
         listOfViewPagers.forEach {
             it.adapter = ViewPagerAdapter()
-            it.setOnScrollChangeListener { view, i, i2, i3, i4 ->
-                viewmodel.checkAnswer(vpFirstDigit.currentItem,vpSecondDigit.currentItem,vpThirdDigit.currentItem,vpFourthDigit.currentItem)
-            }
         }
 
         btnNewValue.setOnClickListener { viewmodel.resetCurrentGuessValue() }
 
         viewmodel.attempts.observe(viewLifecycleOwner, Observer { txtAttemptsCount.text = it.toString() })
-        viewmodel.gameMsg.observe(viewLifecycleOwner, Observer { Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show() })
+        viewmodel.gameMsg.observe(viewLifecycleOwner, Observer { if(it.isNotEmpty()) Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show() })
+        btnGuess.setOnClickListener {
+            viewmodel.checkAnswer(vpFirstDigit.currentItem,vpSecondDigit.currentItem,vpThirdDigit.currentItem,vpFourthDigit.currentItem)
+        }
     }
 }

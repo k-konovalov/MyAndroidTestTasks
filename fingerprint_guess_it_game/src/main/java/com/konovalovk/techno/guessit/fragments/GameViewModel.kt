@@ -27,7 +27,7 @@ class GameViewModel: ViewModel() {
             userAnswer < guessInt -> {
                 attempts.postValue(numberOfAttempts.incrementAndGet())
                 "less than stored value"}
-            else -> "you're right!"
+            else -> "You're right!"
         }
 
         gameMsg.postValue(msg)
