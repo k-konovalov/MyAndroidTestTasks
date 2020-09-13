@@ -10,47 +10,47 @@
         android:id="@+id/vpFirstDigit"
         android:layout_width="50dp"
         android:layout_height="200dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vpSecondDigit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpSecondDigit"
         android:layout_width="50dp"
         android:layout_height="200dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vpThirdDigit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/vpFirstDigit"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpThirdDigit"
         android:layout_width="50dp"
         android:layout_height="200dp"
         android:layout_marginStart="3dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vpFourthDigit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/vpSecondDigit"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpFourthDigit"
         android:layout_width="50dp"
         android:layout_height="200dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/vpThirdDigit"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnNewValue"
@@ -61,5 +61,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vpSecondDigit" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewValue">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Попытки"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtAttemptsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="1"
+            android:textSize="36sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

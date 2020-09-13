@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import com.konovalovk.techno.guessit.R
 import com.konovalovk.techno.guessit.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_game.*
-import kotlin.random.Random
 
 class GameFragment : Fragment(R.layout.fragment_game){
     val viewmodel:GameViewModel by viewModels()
@@ -25,17 +24,9 @@ class GameFragment : Fragment(R.layout.fragment_game){
             }
         }
 
-        btnNewValue.setOnClickListener {
-            viewmodel.guessInt = Random.nextInt(0, 9999)
-        }
+        btnNewValue.setOnClickListener { viewmodel.resetCurrentGuessValue() }
 
-        viewmodel.tries.observe(viewLifecycleOwner, Observer {
-
-        })
-        viewmodel.gameMsg.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        })
+        viewmodel.attempts.observe(viewLifecycleOwner, Observer { txtAttemptsCount.text = it.toString() })
+        viewmodel.gameMsg.observe(viewLifecycleOwner, Observer { Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show() })
     }
-
-
 }

@@ -7,8 +7,8 @@ import kotlin.random.Random
 
 class GameViewModel: ViewModel() {
     var guessInt = Random.nextInt(0, 9999)
-    val tries = MutableLiveData(0)
-    private val numberOfTries = AtomicInteger(0)
+    val attempts = MutableLiveData(0)
+    private val numberOfAttempts = AtomicInteger(0)
     val gameMsg = MutableLiveData("")
 
     fun checkAnswer(
@@ -22,14 +22,18 @@ class GameViewModel: ViewModel() {
 
         msg += when {
             userAnswer > guessInt -> {
-                tries.postValue(numberOfTries.incrementAndGet())
+                attempts.postValue(numberOfAttempts.incrementAndGet())
                 "greater than stored value"}
             userAnswer < guessInt -> {
-                tries.postValue(numberOfTries.incrementAndGet())
+                attempts.postValue(numberOfAttempts.incrementAndGet())
                 "less than stored value"}
             else -> "you're right!"
         }
 
         gameMsg.postValue(msg)
+    }
+
+    fun resetCurrentGuessValue(){
+        guessInt = Random.nextInt(0, 9999)
     }
 }
