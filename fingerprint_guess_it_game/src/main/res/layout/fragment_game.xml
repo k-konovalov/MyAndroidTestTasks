@@ -51,4 +51,15 @@
         app:layout_constraintStart_toEndOf="@+id/vpThirdDigit"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"/>
+
+    <Button
+        android:id="@+id/btnNewValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="New Value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vpSecondDigit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
