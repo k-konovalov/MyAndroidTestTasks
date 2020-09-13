@@ -9,7 +9,7 @@ import com.konovalovk.techno.guessit.R
 
 class ViewPagerAdapter() : RecyclerView.Adapter<PagerVH>() {
 
-    private val digit = (1..9).toList().toIntArray()
+    private val digit = (0..9).toList().toIntArray()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =
         PagerVH(LayoutInflater.from(parent.context).inflate(R.layout.digit_item, parent, false))
